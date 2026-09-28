@@ -4,18 +4,19 @@ class Stack{
 	int top;
 	Stack(int size){
 		arr = new int[size];
+		capacity = size;
 		top = -1;
 	}
 	boolean isEmpty(){
-		return(top == empty);
+		return top == -1;
 	}
 
 	boolean isFull(){
-		return(top == capacity -1);
+		return top == capacity -1;
 		}
 	void pushToStack(int data){
 		if(isFull()){
-			System.out.println("The stack is full please empty it before using");
+			System.out.println("Stack Overflow!");
 			return;
 		}
 		arr[++top] = data;
@@ -23,7 +24,7 @@ class Stack{
 
 	int popFromStack(){
 		if(isEmpty()){
-			System.out.println("The stack is Empty please fill it");
+			System.out.println("Stack Underflow!");
 			return -1;
 		}
 		return arr[top--];
@@ -36,4 +37,13 @@ class Stack{
 		}
 		return arr[top];
 	}	
+	void display(){
+		if(isEmpty()){
+			System.out.println("Stack is Empty");
+			return;
+		}
+		System.out.println("Elemment is the Stack are as follow : ");
+		for(int i = 0; i <= top; i++){
+			System.out.print(arr[i] + " ");
+		}
 }
